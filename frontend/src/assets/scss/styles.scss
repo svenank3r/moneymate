@@ -1,11 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./material-theme";
 
-body {
-    height: 100%;
+html,
+body,
+material-app,
+mat-sidenav-container,
+app-root {
     margin: 0;
+    width: 100%;
+    height: 100%;
 }
 
 mat-sidenav.mat-sidenav-fixed {
     @include mat-elevation(16);
+}
+
+.page__wrapper {
+    margin: 24px;
 }

@@ -5,6 +5,7 @@ import {MainNavigationComponent} from './components/main-navigation/main-navigat
 import {BrowserModule} from '@angular/platform-browser';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {RouterModule} from '@angular/router';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -13,6 +14,7 @@ import {RouterModule} from '@angular/router';
     ],
     imports: [
         BrowserModule,
+        FlexLayoutModule,
         MatSidenavModule,
         MatToolbarModule,
         MatIconModule,
