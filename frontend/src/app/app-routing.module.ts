@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
+import {DashboardComponent} from './modules/dashboard/dashboard.component';
+import {AccountsComponent} from './modules/accounts/accounts.component';
+import {TransactionsComponent} from './modules/transactions/transactions.component';
+import {NotFoundComponent} from './core/navigation/components/not-found/not-found.component';
 import {RouterModule, Routes} from '@angular/router';
-import {AccountsComponent} from '../../modules/accounts/accounts.component';
-import {TransactionsComponent} from '../../modules/transactions/transactions.component';
-import {NotFoundComponent} from '../navigation/components/not-found/not-found.component';
-import {DashboardComponent} from '../../modules/dashboard/dashboard.component';
+import {NgModule} from '@angular/core';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -25,5 +25,5 @@ const appRoutes: Routes = [
     providers: [],
     exports: []
 })
-export class RoutingModule {
+export class AppRoutingModule {
 }
