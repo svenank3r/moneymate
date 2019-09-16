@@ -11,7 +11,7 @@
 
     <groupId>com.srgms.moneymate</groupId>
     <artifactId>api</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>moneymate</name>
     <description>Demo project for Spring Boot</description>

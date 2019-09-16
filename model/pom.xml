@@ -13,7 +13,4 @@
 	<artifactId>model</artifactId>
 	<packaging>jar</packaging>
 
-	<name>moneymate</name>
-	<description>Demo project for Spring Boot</description>
-
 </project>

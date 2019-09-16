@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/transactions")
 public class TransactionsApiController {
 
-    @RequestMapping(path = "/transactions", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<Transaction> getTransactions() {
         List<Transaction> transactions = new ArrayList<>();
         transactions.add(new TransactionBuilder().aTransaction().build());

@@ -4,12 +4,12 @@
 
     <parent>
         <groupId>com.srgms.moneymate</groupId>
-        <artifactId>moneymate-root</artifactId>
-        <version>0.1.0-SNAPSHOT</version>
+        <artifactId>root</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <name>Moneymate - Frontend</name>
-    <artifactId>moneymate-frontend</artifactId>
+    <artifactId>frontend</artifactId>
     <packaging>war</packaging>
 
 </project>
