@@ -1,0 +1,9 @@
+<div class="page__wrapper">
+    <h1>Transactions</h1>
+
+    <mat-list>
+        <mat-list-item *ngFor="let transaction of transactions$ | async">
+            {{transaction.accountNumber}} | {{transaction.amount}} {{transaction.currency.description}} |  {{transaction.description}} | {{transaction.transactionDate | date: 'fullTime' }}
+        </mat-list-item>
+    </mat-list>
+</div>

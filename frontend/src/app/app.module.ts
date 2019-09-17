@@ -1,13 +1,14 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.modules';
+import { AccountsPageModule } from './pages/accounts-page/accounts-page.module';
+import { DashboardPageModule } from './pages/dashboard-page/dashboard-page.module';
+import { TransactionsPageModule } from './pages/transactions-page/transactions-page.module';
+import { HttpModule } from './api/http.module';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CoreModule} from './core/core.modules';
-import {AccountsModule} from './modules/accounts/accounts.module';
-import {DashboardModule} from './modules/dashboard/dashboard.module';
-import {TransactionsModule} from './modules/transactions/transactions.module';
 
 @NgModule({
     declarations: [
@@ -18,9 +19,10 @@ import {TransactionsModule} from './modules/transactions/transactions.module';
         AppRoutingModule,
         BrowserAnimationsModule,
         CoreModule,
-        AccountsModule,
-        DashboardModule,
-        TransactionsModule
+        HttpModule,
+        AccountsPageModule,
+        DashboardPageModule,
+        TransactionsPageModule
     ],
     providers: [],
     bootstrap: [AppComponent]

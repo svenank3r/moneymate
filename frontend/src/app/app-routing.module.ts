@@ -1,15 +1,15 @@
-import {DashboardComponent} from './modules/dashboard/dashboard.component';
-import {AccountsComponent} from './modules/accounts/accounts.component';
-import {TransactionsComponent} from './modules/transactions/transactions.component';
-import {NotFoundComponent} from './core/navigation/components/not-found/not-found.component';
-import {RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
+import { NotFoundComponent } from './core/navigation/components/not-found/not-found.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { AccountsPageComponent } from './pages/accounts-page/accounts-page.component';
+import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-    {path: 'dashboard', component: DashboardComponent},
-    {path: 'accounts', component: AccountsComponent},
-    {path: 'transactions', component: TransactionsComponent},
+    {path: 'dashboard', component: DashboardPageComponent},
+    {path: 'accounts', component: AccountsPageComponent},
+    {path: 'transactions', component: TransactionsPageComponent},
     {path: '**', component: NotFoundComponent}
 ];
 

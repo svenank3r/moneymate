@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/transactions")
+@RequestMapping(path = "/api/transactions")
 public class TransactionsApiController {
 
     @RequestMapping(method = RequestMethod.GET)

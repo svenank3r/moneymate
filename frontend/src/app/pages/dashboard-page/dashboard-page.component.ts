@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {map} from 'rxjs/operators';
-import {Breakpoints, BreakpointState, BreakpointObserver} from '@angular/cdk/layout';
+import { Component } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
-    selector: 'app-dashboard',
-    templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.scss']
+    selector: 'app-dashboard-page',
+    templateUrl: './dashboard-page.component.html',
+    styleUrls: ['./dashboard-page.component.scss']
 })
-export class DashboardComponent {
+export class DashboardPageComponent {
     /** Based on the screen size, switch from standard to one column per row */
     cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
         map(({matches}) => {
