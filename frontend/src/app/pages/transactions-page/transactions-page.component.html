@@ -1,9 +1,17 @@
-<div class="page__wrapper">
+<div>
     <h1>Transactions</h1>
 
-    <mat-list>
-        <mat-list-item *ngFor="let transaction of transactions$ | async">
-            {{transaction.accountNumber}} | {{transaction.amount}} {{transaction.currency.description}} |  {{transaction.description}} | {{transaction.transactionDate | date: 'fullTime' }}
-        </mat-list-item>
-    </mat-list>
+    <div *ngIf="transactions$ | async; else loadingState">
+        <mat-list>
+            <mat-list-item *ngFor="let transaction of transactions$ | async">
+                {{transaction.accountNumber}} | {{transaction.amount}} {{transaction.currency.description}} |  {{transaction.description}} | {{transaction.transactionDate | date: 'fullTime' }}
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <ng-template #loadingState>
+        <div fxLayout="column" fxLayoutAlign="stretch center" fxFill>
+            <mat-progress-spinner mode="indeterminate" color="accent" [diameter]="72"></mat-progress-spinner>
+        </div>
+    </ng-template>
 </div>

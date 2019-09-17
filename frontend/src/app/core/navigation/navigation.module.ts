@@ -6,6 +6,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {RouterModule} from '@angular/router';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import {FlexLayoutModule} from '@angular/flex-layout';
         MatButtonModule,
         MatIconModule,
         RouterModule,
+        MatMenuModule,
     ],
     providers: [],
     exports: [

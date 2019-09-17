@@ -4,6 +4,8 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, } from '@
 import { TransactionsPageComponent } from './transactions-page.component';
 import { MatListModule } from '@angular/material/list';
 import { CommonModule } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
@@ -16,7 +18,9 @@ import { CommonModule } from '@angular/common';
         MatCardModule,
         MatMenuModule,
         MatListModule,
-        CommonModule
+        CommonModule,
+        MatProgressSpinnerModule,
+        FlexLayoutModule
     ],
     providers: [],
     bootstrap: []
