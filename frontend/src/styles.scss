@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/scss/material-theme";
 
+$primary-color: mat-color($moneymate-primary);
+$accent-color: mat-color($moneymate-accent);
+
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-material.css";
+
 html,
 body,
 material-app,

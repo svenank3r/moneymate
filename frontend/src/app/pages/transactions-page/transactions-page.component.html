@@ -1,12 +1,50 @@
 <div>
     <h1>Transactions</h1>
 
+    <mat-form-field>
+        <mat-label>Account</mat-label>
+        <mat-select placeholder="Choose an Account">
+            <mat-option value="1">NL72RABO0102453942 - Payment account</mat-option>
+        </mat-select>
+    </mat-form-field>
+
     <div *ngIf="transactions$ | async; else loadingState">
-        <mat-list>
-            <mat-list-item *ngFor="let transaction of transactions$ | async">
-                {{transaction.accountNumber}} | {{transaction.amount}} {{transaction.currency.description}} |  {{transaction.description}} | {{transaction.transactionDate | date: 'fullTime' }}
-            </mat-list-item>
-        </mat-list>
+        <mat-card class="search-filter">
+            <mat-card-content fxLayout="row" fxLayoutAlign="space-between center">
+                <mat-form-field [hintLabel]="'Filter the table on all columns'" style="min-width: 360px;">
+                    <input matInput type="text" placeholder="Filter" [(ngModel)]="searchTerm">
+                </mat-form-field>
+
+                <div class="date-fields">
+                    <mat-form-field>
+                        <mat-label>From date</mat-label>
+                        <input matInput [matDatepicker]="fromDate" placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                        <mat-datepicker #fromDate></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>To date</mat-label>
+                        <input matInput [matDatepicker]="toDate" placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                        <mat-datepicker #toDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <ag-grid-angular
+            class="transactions-table ag-theme-material"
+            [gridOptions]="gridOptions"
+            [rowData]="rowData"
+            [columnDefs]="columnDefs"
+            [quickFilterText]="searchTerm"
+        >
+        </ag-grid-angular>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center" style="margin-top: 16px;">
+        <button mat-raised-button color="primary" style="margin-right: 16px;">Primary color</button>
+        <button mat-raised-button color="accent">Accent color</button>
     </div>
 
     <ng-template #loadingState>
