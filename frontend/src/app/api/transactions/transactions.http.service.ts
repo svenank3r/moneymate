@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { TransactionJson } from './TransactionJson';
-import { delay } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpResponseBase} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {TransactionJson} from './TransactionJson';
 
 @Injectable({providedIn: 'root'})
 export class TransactionsHttpService {
@@ -12,6 +11,13 @@ export class TransactionsHttpService {
     }
 
     public getAllTransactions(): Observable<TransactionJson[]> {
-        return this.httpClient.get<TransactionJson[]>(this.baseUrl).pipe(delay(1000));
+        return this.httpClient.get<TransactionJson[]>(this.baseUrl);
+    }
+
+    public importTransactions(importFile: File): Observable<HttpResponseBase> {
+        const formData: FormData = new FormData();
+        formData.append('file', importFile, importFile.name);
+
+        return this.httpClient.post<HttpResponseBase>(this.baseUrl + '/upload', formData);
     }
 }

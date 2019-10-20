@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { TransactionsHttpService } from '../../api/transactions/transactions.http.service';
-import { Observable } from 'rxjs';
-import { TransactionJson } from '../../api/transactions/TransactionJson';
+import {Component, OnInit} from '@angular/core';
+import {TransactionsHttpService} from '../../api/transactions/transactions.http.service';
+import {Observable} from 'rxjs';
+import {TransactionJson} from '../../api/transactions/TransactionJson';
 
 @Component({
     selector: 'app-transactions-page',
@@ -17,5 +17,4 @@ export class TransactionsPageComponent implements OnInit {
 
     ngOnInit() {
     }
-
 }

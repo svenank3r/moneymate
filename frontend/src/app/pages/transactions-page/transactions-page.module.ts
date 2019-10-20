@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 
-import { MatButtonModule, MatCardModule, MatIconModule, MatMenuModule, } from '@angular/material';
-import { TransactionsPageComponent } from './transactions-page.component';
-import { MatListModule } from '@angular/material/list';
-import { CommonModule } from '@angular/common';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatButtonModule, MatCardModule, MatIconModule, MatMenuModule,} from '@angular/material';
+import {TransactionsPageComponent} from './transactions-page.component';
+import {MatListModule} from '@angular/material/list';
+import {CommonModule} from '@angular/common';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
     declarations: [
-        TransactionsPageComponent,
+        TransactionsPageComponent
     ],
     imports: [
         MatIconModule,

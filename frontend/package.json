@@ -1,5 +1,5 @@
 {
-    "name": "moneymate-fronten",
+    "name": "moneymate-frontend",
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
