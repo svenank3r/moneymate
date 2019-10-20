@@ -8,6 +8,6 @@ export class TransactionsImportService {
     }
 
     importTransactions(importFile: File) {
-        this.transactionsHttpService.importTransactions(importFile);
+        this.transactionsHttpService.importTransactions(importFile).subscribe();
     }
 }

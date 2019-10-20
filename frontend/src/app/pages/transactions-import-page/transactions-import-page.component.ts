@@ -36,6 +36,6 @@ export class TransactionsImportPageComponent implements OnInit {
     }
 
     importTransactions(): void {
-        this.transactionsImportService.importTransactions(this.importFile)
+        this.transactionsImportService.importTransactions(this.importFile);
     }
 }

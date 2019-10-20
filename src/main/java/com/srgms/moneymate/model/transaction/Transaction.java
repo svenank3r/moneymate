@@ -4,6 +4,8 @@ import com.srgms.moneymate.model.currency.Currency;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -11,6 +13,7 @@ import java.util.Objects;
 public class Transaction {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long transactionId;
 
     @CreationTimestamp
@@ -46,6 +49,26 @@ public class Transaction {
         String description
     ) {
         this.transactionId = transactionId;
+        this.transactionDate = transactionDate;
+        this.accountNumber = accountNumber;
+        this.currency = currency;
+        this.credit = credit;
+        this.amount = amount;
+        this.counterAccountName = counterAccountName;
+        this.counterAccountNumber = counterAccountNumber;
+        this.description = description;
+    }
+
+    public Transaction(
+        LocalDateTime transactionDate,
+        String accountNumber,
+        Currency currency,
+        boolean credit,
+        Double amount,
+        String counterAccountName,
+        String counterAccountNumber,
+        String description
+    ) {
         this.transactionDate = transactionDate;
         this.accountNumber = accountNumber;
         this.currency = currency;

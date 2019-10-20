@@ -1,4 +1,4 @@
-package com.srgms.moneymate.api.transactions;
+package com.srgms.moneymate.services.transactions;
 
 public class TransactionsImportService {
 
