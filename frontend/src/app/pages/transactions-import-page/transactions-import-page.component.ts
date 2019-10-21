@@ -7,15 +7,13 @@ import {TransactionsImportService} from '../../api/transactions/TransactionsImpo
     styleUrls: ['./transactions-import-page.component.scss']
 })
 export class TransactionsImportPageComponent implements OnInit {
-    @ViewChild('file', null) file;
+    @ViewChild('file', {static: false}) file: any;
 
     // Local
     selectedBank: string;
     importFile: File;
 
     constructor(private transactionsImportService: TransactionsImportService) {
-        this.selectedBank = null;
-        this.importFile = null;
     }
 
     ngOnInit() {
@@ -30,7 +28,7 @@ export class TransactionsImportPageComponent implements OnInit {
     }
 
     getFileName(): string {
-        return this.importFile !== null
+        return this.importFile !== undefined
             ? this.importFile.name
             : 'No file selected';
     }
