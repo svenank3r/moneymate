@@ -1,10 +1,11 @@
-import {NotFoundComponent} from './core/navigation/components/not-found/not-found.component';
-import {RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
-import {DashboardPageComponent} from './pages/dashboard-page/dashboard-page.component';
-import {AccountsPageComponent} from './pages/accounts-page/accounts-page.component';
-import {TransactionsPageComponent} from './pages/transactions-page/transactions-page.component';
-import {TransactionsImportPageComponent} from './pages/transactions-import-page/transactions-import-page.component';
+import { NotFoundComponent } from './core/navigation/components/not-found/not-found.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { AccountsPageComponent } from './pages/accounts-page/accounts-page.component';
+import { TransactionsPageComponent } from './pages/transactions-page/transactions-page.component';
+import { TransactionsImportPageComponent } from './pages/transactions-import-page/transactions-import-page.component';
+import { CategoriesPageComponent } from './pages/categories-page/categories-page.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const appRoutes: Routes = [
     {path: 'accounts', component: AccountsPageComponent},
     {path: 'transactions', component: TransactionsPageComponent},
     {path: 'transactions/import', component: TransactionsImportPageComponent},
+    {path: 'categories', component: CategoriesPageComponent},
     {path: '**', component: NotFoundComponent}
 ];
 

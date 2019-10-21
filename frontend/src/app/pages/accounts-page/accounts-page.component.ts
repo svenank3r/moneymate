@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AccountJson } from '../../api/accounts/AccountJson';
+import { AccountsHttpService } from '../../api/accounts/accounts.http.service';
 
 @Component({
     selector: 'app-accounts-page',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountsPageComponent implements OnInit {
 
-    constructor() {
+    accounts$: Observable<AccountJson[]> = this.accountsHttpService.getAllAccounts();
+
+    constructor(private accountsHttpService: AccountsHttpService) {
     }
 
     ngOnInit() {

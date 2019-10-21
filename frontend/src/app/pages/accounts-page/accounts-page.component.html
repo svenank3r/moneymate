@@ -1,4 +1,22 @@
 <div>
     <h1>Accounts</h1>
-    <p>Accounts works!</p>
+
+    <!-- Show accounts -->
+    <!-- CRUD actions for accounts -->
+
+    <div *ngIf="accounts$ | async; else loadingState">
+        <button mat-raised-button color="primary">Add new Account</button>
+
+        <mat-list>
+            <mat-list-item *ngFor="let account of accounts$ | async">
+                {{account.accountNumber}}
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <ng-template #loadingState>
+        <div fxLayout="column" fxLayoutAlign="stretch center" fxFill>
+            <mat-progress-spinner mode="indeterminate" color="accent" [diameter]="72"></mat-progress-spinner>
+        </div>
+    </ng-template>
 </div>

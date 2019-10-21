@@ -16,21 +16,19 @@ export class TransactionsPageComponent implements OnInit {
     searchTerm: string;
 
     columnDefs = [
-        {headerName: 'Transaction ID', field: 'transactionId'},
-        {headerName: 'Account number', field: 'accountNumber'},
-        {headerName: 'Currency', field: 'currency'},
-        {headerName: 'Amount', field: 'amount'},
-        {headerName: 'Credit/Debit', field: 'credit'},
-        {headerName: 'Date', field: 'transactionDate'},
-        {headerName: 'Description', field: 'description'},
-        {headerName: 'Counter account name', field: 'counterAccountName'},
-        {headerName: 'Counter account number', field: 'counterAccountNumber'},
+        {headerName: 'Transaction ID', field: 'transactionId', sortable: true},
+        {headerName: 'Account number', field: 'accountNumber', sortable: true, filter: true},
+        {headerName: 'Currency', field: 'currency', sortable: true},
+        {headerName: 'Amount', field: 'amount', sortable: true, filter: true},
+        {headerName: 'Credit/Debit', field: 'credit', sortable: true},
+        {headerName: 'Date', field: 'transactionDate', sortable: true},
+        {headerName: 'Description', field: 'description', sortable: true, filter: true},
+        {headerName: 'Counter account name', field: 'counterAccountName', sortable: true, filter: true},
+        {headerName: 'Counter account number', field: 'counterAccountNumber', sortable: true, filter: true},
     ];
 
     gridOptions: GridOptions = {
-        enableSorting: true,
         sortingOrder: ['asc', 'desc', 'null'],
-        enableFilter: true,
         animateRows: true,
         rowSelection: 'single',
         suppressCellSelection: true,
