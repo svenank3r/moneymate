@@ -16,7 +16,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
     declarations: [
-        TransactionsPageComponent,
+        TransactionsPageComponent
     ],
     imports: [
         MatIconModule,
