@@ -2,14 +2,18 @@ package com.srgms.moneymate.model.transaction;
 
 import com.srgms.moneymate.model.currency.Currency;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.annotation.Id;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Entity
+@Table(name = "TRANSACTIONS")
 public class Transaction {
 
     @Id
