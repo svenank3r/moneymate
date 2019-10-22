@@ -3,6 +3,10 @@ package com.srgms.moneymate.api.transactions;
 import com.srgms.moneymate.model.currency.Currency;
 import com.srgms.moneymate.model.transaction.Transaction;
 import com.srgms.moneymate.model.transaction.TransactionBuilder;
+import com.srgms.moneymate.model.transaction.TransactionCsvObject;
+import com.univocity.parsers.common.processor.BeanListProcessor;
+import com.univocity.parsers.csv.CsvParser;
+import com.univocity.parsers.csv.CsvParserSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -50,25 +54,32 @@ public class TransactionsApiController {
         ) {
             Set<Transaction> transactions = new HashSet<>();
 
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] csvLineParts = line.split(",");
+            BeanListProcessor<TransactionCsvObject> rowProcessor = new BeanListProcessor<>(TransactionCsvObject.class);
+            CsvParserSettings parserSettings = new CsvParserSettings();
+            parserSettings.getFormat().setLineSeparator("\n");
+            parserSettings.setProcessor(rowProcessor);
+            parserSettings.setHeaderExtractionEnabled(true);
+            CsvParser csvParser = new CsvParser(parserSettings);
 
-                Transaction newTransaction = new Transaction(
-                    null,
-                    LocalDateTime.parse(csvLineParts[2]),
-                    csvLineParts[0],
-                    csvLineParts[1].equals(Currency.EUR.getCode()) ? Currency.EUR : null,
-                    csvLineParts[3].equals("C") ? true : false,
-                    Double.valueOf(csvLineParts[4]),
-                    csvLineParts[6],
-                    csvLineParts[5],
-                    csvLineParts[10]
+            csvParser.parse(inputStream);
+
+            List<TransactionCsvObject> csvObjects = rowProcessor.getBeans();
+
+            for (TransactionCsvObject csvObject: csvObjects) {
+                transactions.add(
+                    new Transaction(
+                        null,
+                        csvObject.getTransactionDate(),
+                        csvObject.getAccountNumber(),
+                        csvObject.getCurrency().equals(Currency.EUR.getCode()) ? Currency.EUR : null,
+                        csvLineParts[3].equals("C") ? true : false,
+                        Double.valueOf(csvLineParts[4]),
+                        csvLineParts[6],
+                        csvLineParts[5],
+                        csvLineParts[10]
+                    )
                 );
-
-                transactions.add(newTransaction);
             }
-
 
         } catch (IOException e) {
             e.printStackTrace();
